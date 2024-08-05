@@ -22,7 +22,7 @@ go run cmd/cli/main.go
 
 ## Todo
 Sobre benchmarks: https://www.practical-go-lessons.com/chap-34-benchmarks
-- [ ] criar gráficos com as informações abaixo
+- [x] criar gráficos com as informações abaixo
 ```
 Running tool: /opt/homebrew/bin/go test -benchmem -run=^$ -coverprofile=/var/folders/vn/gff4w90d37xbfc_2tn3616h40000gn/T/vscode-goPkxuz8/go-code-cover -bench . github.com/eminetto/post-flatbuffers/events-api -failfast -v
 
@@ -39,5 +39,5 @@ ok  	github.com/eminetto/post-flatbuffers/events-api	4.230s
 ```
 
 - [ ] pegar graficos de comparação do próprio site do flatbuffers
-- [ ] unificar em um diretório só para ficar mais fácil publicar no github
+- [x] unificar em um diretório só para ficar mais fácil publicar no github
 - [ ] criar diagrama mostrando a ideia da PoC, como feito no ipad
