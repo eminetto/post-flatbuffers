@@ -1,3 +1,7 @@
+
+## Test JSON
+
+```
 curl -v -X "POST" "http://localhost:3000/json" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/json' \
@@ -8,9 +12,18 @@ curl -v -X "POST" "http://localhost:3000/json" \
   "time": "2018-04-05T17:31:00Z",
   "data": "User clicked because X"
 }'
+```
 
+## Test Flatbuffers
+
+```
+go run cmd/cli/main.go
+```
+
+## Todo
 Sobre benchmarks: https://www.practical-go-lessons.com/chap-34-benchmarks
-@todo: criar gráficos com as informações abaixo
+- [ ] criar gráficos com as informações abaixo
+```
 Running tool: /opt/homebrew/bin/go test -benchmem -run=^$ -coverprofile=/var/folders/vn/gff4w90d37xbfc_2tn3616h40000gn/T/vscode-goPkxuz8/go-code-cover -bench . github.com/eminetto/post-flatbuffers/events-api -failfast -v
 
 goos: darwin
@@ -23,7 +36,8 @@ BenchmarkFlatBuffers-8   	 2183271	       551.6 ns/op	    1768 B/op	      16 all
 PASS
 coverage: 82.6% of statements
 ok  	github.com/eminetto/post-flatbuffers/events-api	4.230s
+```
 
-@todo pegar graficos de comparação do próprio site do flatbuffers
-@todo unificar em um diretório só para ficar mais fácil publicar no github
-@todo criar diagrama mostrando a ideia da PoC, como feito no ipad
+- [ ] pegar graficos de comparação do próprio site do flatbuffers
+- [ ] unificar em um diretório só para ficar mais fácil publicar no github
+- [ ] criar diagrama mostrando a ideia da PoC, como feito no ipad
