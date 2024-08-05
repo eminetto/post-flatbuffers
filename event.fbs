@@ -1,0 +1,11 @@
+namespace events;
+
+table Event {
+    type: string;
+    subject:string;
+    source:string;
+    time:string;
+    data:string;
+}
+
+root_type Event;
