@@ -20,9 +20,6 @@ func handlers() *chi.Mux {
 	if os.Getenv("DEBUG") != "false" {
 		r.Use(middleware.Logger)
 	}
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome"))
-	})
 	r.Post("/json", processJSON())
 	r.Post("/fb", processFB())
 	r.Post("/pb", processPB())
