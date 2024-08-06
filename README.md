@@ -1,6 +1,13 @@
 
 # JSON x Flatbuffers x Protocol Buffers
 
+## To run API
+
+```
+cd cmd/api
+go run .
+```
+
 ## To test JSON
 
 ```
@@ -30,5 +37,5 @@ go run cmd/fb/main.go
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 brew install protobuf
 protoc -I=. --go_out=./ event.proto
-
+go run cmd/pb/main.go
 ```
