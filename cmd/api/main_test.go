@@ -10,7 +10,9 @@ import (
 	"testing"
 
 	"github.com/eminetto/post-flatbuffers/events"
+	"github.com/eminetto/post-flatbuffers/events_pb"
 	flatbuffers "github.com/google/flatbuffers/go"
+	"google.golang.org/protobuf/proto"
 )
 
 func benchSetup() {
@@ -59,6 +61,30 @@ func BenchmarkFlatBuffers(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		w := httptest.NewRecorder()
 		req, _ := http.NewRequest("POST", "/fb", bytes.NewReader(buff))
+		r.ServeHTTP(w, req)
+		if w.Code != http.StatusCreated {
+			b.Errorf("expected status 201, got %d", w.Code)
+		}
+	}
+}
+
+func BenchmarkProtobuffer(b *testing.B) {
+	benchSetup()
+	r := handlers()
+	evt := events_pb.Event{
+		Type:    "button.clicked",
+		Subject: "user1000",
+		Source:  "service-b",
+		Time:    "2018-04-05T17:31:00Z",
+		Data:    "User clicked because X",
+	}
+	payload, err := proto.Marshal(&evt)
+	if err != nil {
+		panic(err)
+	}
+	for i := 0; i < b.N; i++ {
+		w := httptest.NewRecorder()
+		req, _ := http.NewRequest("POST", "/pb", bytes.NewReader(payload))
 		r.ServeHTTP(w, req)
 		if w.Code != http.StatusCreated {
 			b.Errorf("expected status 201, got %d", w.Code)

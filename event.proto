@@ -1,0 +1,12 @@
+syntax = "proto3";
+package events;
+
+option go_package = "./events_pb";
+
+message Event {
+    string type = 1;
+    string subject = 2;
+    string source = 3;
+    string time = 4;
+    string data = 5;
+}

@@ -25,6 +25,7 @@ func handlers() *chi.Mux {
 	})
 	r.Post("/json", processJSON())
 	r.Post("/fb", processFB())
+	r.Post("/pb", processPB())
 	return r
 }
 
